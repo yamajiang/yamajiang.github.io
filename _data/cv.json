@@ -1,14 +1,14 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Yama Jiang",
+    "email": "yamajiang.cs@gmail.com",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://yamajiang.github.io",
+    "summary": "Accelerated BS-MS CS @ UCF",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
+      "city": "Orlando",
       "countryCode": "US",
       "region": ""
     },
