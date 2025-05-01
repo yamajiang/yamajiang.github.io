@@ -21,7 +21,7 @@ In my free time, I enjoy crocheting, cooking, and self-teaching new topics to ex
 
 I am currently seeking research or internship opportunities where I can apply and expand my skills in computer science, particularly in the areas of artificial intelligence and machine learning. I’m eager to gain hands-on experience by contributing to real-world projects, collaborating with experienced professionals, and continuing to learn through practical application. I believe these opportunities will allow me to further develop my technical abilities while making meaningful contributions to innovative projects.
 
-If you're interested, please feel free to reach out to me! 
+Please head over to my portfolio and CV to view my experience and skills. If you're interested, please feel free to reach out to me! 
 
 
 
