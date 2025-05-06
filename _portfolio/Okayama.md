@@ -1,6 +1,6 @@
 ---
 title: "Okayama"
-excerpt: "Website for a sushi restaurant called Okayama based in Orlando, FL. <br/><img src='/images/okayama.png' width='300'>"
+excerpt: "Website for a sushi restaurant called Okayama based in Orlando, FL. <br/><img src='/images/okayama.png' width='400'>"
 collection: portfolio
 ---
 
