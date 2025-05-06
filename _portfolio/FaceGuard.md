@@ -1,6 +1,6 @@
 ---
 title: "Face Guard"
-excerpt: "A privacy-focused tool that uses OpenCV and MediaPipe to blur faces in photos, videos, and live webcam feeds. It leverages real-time facial landmark detection to ensure consistent and accurate anonymization."
+excerpt: "A privacy-focused tool that uses OpenCV and MediaPipe to blur faces in photos, videos, and live webcam feeds. It leverages real-time facial landmark detection to ensure consistent and accurate anonymization. <br/><img src='/images/faceguard.png'>"
 collection: portfolio
 ---
 
