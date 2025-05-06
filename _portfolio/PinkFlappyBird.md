@@ -1,5 +1,5 @@
 ---
-title: "Flappy Bird"
+title: "Pink Flappy Bird"
 excerpt: "A pink-themed Flappy Bird clone built in Unity with custom graphics. My first dive into game development, where I explored C#, physics, collision detection, and user input handling. <br/><img src='/images/flappybird.png' width='300'>"
 collection: portfolio
 ---
