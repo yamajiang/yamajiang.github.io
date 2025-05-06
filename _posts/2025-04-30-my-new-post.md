@@ -14,6 +14,8 @@ NavX is a small-scale autonomous robot developed as part of a project for the EG
 
 ------
 
+My friend and I have completed our Intro to Robotics project for the Spring 2025 semester! I'm proud to share what we have accomplished and learned throughout this project. 
+
 Abstract
 ======
 Autonomous robotic systems have seen rapid advancements in recent years in many different industries. This follows the applications of self-driving vehicles, automation in workplaces, and intelligent navigation systems. In this project, we built and programed an autonomous object avoidance robot capable of avoiding objects in real time while identifying and reporting the detected objects to the user. NavX uses a combination of different sensors and embedded systems along with decision making algorithms and classification programs to incorporate a broader application of autonomous navigation applicable for different utilizations. Through the development of this project, our team was able to develop hands-on experience on key areas of robotics, machine learning, and decision making exploring the growing field of autonomous systems.  
