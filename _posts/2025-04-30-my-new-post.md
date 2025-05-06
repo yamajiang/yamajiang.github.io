@@ -18,7 +18,7 @@ Abstract
 ======
 Autonomous robotic systems have seen rapid advancements in recent years in many different industries. This follows the applications of self-driving vehicles, automation in workplaces, and intelligent navigation systems. In this project, we built and programed an autonomous object avoidance robot capable of avoiding objects in real time while identifying and reporting the detected objects to the user. NavX uses a combination of different sensors and embedded systems along with decision making algorithms and classification programs to incorporate a broader application of autonomous navigation applicable for different utilizations. Through the development of this project, our team was able to develop hands-on experience on key areas of robotics, machine learning, and decision making exploring the growing field of autonomous systems.  
 
-![NavX](yamajiang.github.io/images/navx.png)
+![NavX](/images/navx.png)
 
 
 Building NavX
@@ -35,7 +35,7 @@ Results
 ======
 NavX performed well during our tests, with success in stopping and rerouting when encountering obstacles. While some objects—were occasionally detected a bit late, the robot still responded correctly within our set threshold of 35 cm. The object identification system using YOLOv8 worked fairly well overall, though the model occasionally misclassified items due to class confidence limitations and dataset bias.
 
-![NavX Detection](yamajiang.github.io/images/detection.png)
+![NavX Detection](/images/detection.png)
 
 
 We faced challenges setting up Bluetooth communication and initially considered using RoboFlow for detection via API, but settled on capturing images directly from the ESP32 camera feed. This simplified integration but meant detection ran at fixed intervals rather than being triggered contextually. With more time, we would improve this by enabling object-triggered image processing and refining sensor accuracy.
