@@ -1,6 +1,6 @@
 ---
 title: "NavX"
-excerpt: "An autonomous robot developed with Arduino and YOLOv8 that performs real-time obstacle avoidance and object identification along with reporting through the terminal with live feed. <br/><img src='/images/navx.jpg'>"
+excerpt: "An autonomous robot developed with Arduino and YOLOv8 that performs real-time obstacle avoidance and object identification along with reporting through the terminal with live feed. <br/><img src='/images/navx.jpg' width='300'>"
 collection: portfolio
 ---
 

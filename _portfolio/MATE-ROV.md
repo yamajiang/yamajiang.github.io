@@ -1,6 +1,6 @@
 ---
 title: "MATE ROV"
-excerpt: "A leak sensor for MATE ROV’s enclosure to detect water leakage, improving underwater safety with real-time alerts. Created a terminal user interface to display sensor data on the flight control system for clear, immediate feedback to operators. <br/><img src='/images/leaksensor.png'>"
+excerpt: "A leak sensor for MATE ROV’s enclosure to detect water leakage, improving underwater safety with real-time alerts. Created a terminal user interface to display sensor data on the flight control system for clear, immediate feedback to operators. <br/><img src='/images/leaksensor.png'  width='300'>"
 collection: portfolio
 ---
 
