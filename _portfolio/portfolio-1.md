@@ -10,7 +10,7 @@ Face Guard is a privacy-focused project that utilizes OpenCV and MediaPipe to bl
 <img src="/images/faceguard.png" alt="Face Guard" width="500">
 
 
-Tools & Implementation:
+Tools:
 ====
 OpenCV: A powerful computer vision library that I used for image and video handling, including reading input files, processing frames, and saving the output.
 
@@ -28,4 +28,6 @@ Video Mode: I used OpenCV's VideoCapture to read frames from a video file, proce
 
 Webcam Mode: The program can also process live webcam feeds. It continuously captures frames from the webcam, processes them for face anonymization, and displays the output in real-time. The feed stops when the user presses the 'q' key.
 
-Through this project, I gained hands-on experience with OpenCV's powerful image processing capabilities and MediaPipe's ease of use for real-time applications. I also developed a deeper understanding of the challenges in ensuring privacy in digital media. Face Guard sparked my interest in privacy-focused technology and provided a strong foundation for future work in computer vision, interactive applications, and real-time data processing."
+Summary:
+====
+Through this project, I gained hands-on experience with OpenCV's powerful image processing capabilities and MediaPipe's ease of use for real-time applications. I also developed a deeper understanding of the challenges in ensuring privacy in digital media. Face Guard sparked my interest in privacy-focused technology and provided a strong foundation for future work in computer vision, interactive applications, and real-time data processing.
