@@ -7,6 +7,8 @@ redirect_from:
   - /resume
 ---
 
+<iframe src="{{ '/files/resume.pdf' | relative_url }}" width="100%" height="1000px" style="border:none;"></iframe>
+
 {% include base_path %}
 
 Education
