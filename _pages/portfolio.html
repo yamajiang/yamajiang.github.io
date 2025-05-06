@@ -7,6 +7,9 @@ author_profile: true
 
 {% include base_path %}
 
+{% assign sorted_portfolio = site.portfolio | sort: 'weight' %}
+
+
 
 {% for post in site.portfolio %}
   {% include archive-single.html %}
