@@ -2,6 +2,7 @@
 title: "MATE ROV"
 excerpt: "A leak sensor for MATE ROV’s enclosure to detect water leakage, improving underwater safety with real-time alerts. Created a terminal user interface to display sensor data on the flight control system for clear, immediate feedback to operators. <br/><img src='/images/leaksensor.png'  width='300'>"
 collection: portfolio
+weight: 4
 ---
 
 The MATE ROV Leak Sensor & Terminal UI project is a real-time monitoring system designed for the MATE ROV, combining an Arduino-based water leak detector with a Python terminal interface. The goal of this project was to increase the safety and durability of the ROV during underwater missions by immediately alerting operators to any signs of leakage inside the enclosure.
