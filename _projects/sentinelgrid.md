@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Sentinel Grid
-description: "Senior Design Project"
 img: assets/img/sentinel.png
 importance: 1
 category: academic
