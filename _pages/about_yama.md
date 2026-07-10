@@ -1,0 +1,4 @@
+I’m currently pursuing a Bachelor of Science in Computer Science through the Accelerated BS-MS program at the University of Central Florida where I will be continuing with my Master's in the Fall. I am passionate about applying technology to solve real-world problems, particularly in AI, data engineering, robotics, cybersecurity, and software engineering. In my free time, I enjoy learning new technologies and programming languages, working on personal projects, and continuously expanding my skills. I'm currently learning SQL!
+
+---
+As I continue to expand my technical expertise, I am eager to learn, adapt, and take on new challenges in the rapidly evolving technology industry. I am actively seeking opportunities where I can contribute to meaningful projects, collaborate with a like minded team, and continue growing both professionally and technically.
