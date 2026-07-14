@@ -4,7 +4,7 @@ title: notes example template
 description: an example of a distill-style blog post and main elements
 tags: notes
 published: false
-giscus_comments: true
+giscus_comments: false
 date: 2021-05-22
 featured: true
 mermaid:
