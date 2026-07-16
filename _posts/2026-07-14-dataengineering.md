@@ -3,7 +3,7 @@ layout: distill
 title: data engineering
 description: >-
   my learning progress + notes for data engineering <br>
-  last edited: july 14, 2026
+  last edited: july 16, 2026
 tags:
   - notes
 published: true
@@ -35,7 +35,7 @@ toc:
   - name: Foundation
     subsections:
       - name: Fundamentals 
-
+ 
 
 ---
 
