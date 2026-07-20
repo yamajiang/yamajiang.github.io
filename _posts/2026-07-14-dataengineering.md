@@ -3,13 +3,13 @@ layout: distill
 title: data engineering
 description: >-
   my learning progress + notes for data engineering <br>
-  last edited: july 16, 2026
+  last edited: july 20, 2026
 tags:
   - notes
 published: true
 giscus_comments: false
 date: 2026-07-14
-last_edited: 2026-07-16
+last_edited: 2026-07-20
 featured: true
 
 _styles: >
@@ -35,7 +35,9 @@ toc:
   - name: Foundation
     subsections:
       - name: Fundamentals 
- 
+      - name: SQL
+      - name: Python
+
 
 ---
 
@@ -266,6 +268,141 @@ OLTP and OLAP are two types of database systems designed for different purposes.
   - Database designs are often denormalized
   - Examples: sales reporting, forecasting, business intelligence  
 
+#### ETL (Extract Transform Load) vs ELT (Extract Load Transform)
+**ETL (Extract, Transform, Load)**
+- Extract data from source systems
+- Transform and clean the data before loading it into the destination
+- Load only processed data into the data warehouse
+- Processing is performed by an external ETL tool or server
+- Common in traditional, on-premises data warehouses
+- Best when data quality, compliance, or storage is a priority
+
+Flow:
+Source Systems → Extract → Transform → Load → Data Warehouse
+
+**ELT (Extract, Load, Transform)**
+- Extract data from source systems
+- Load raw data directly into the data warehouse or lakehouse
+- Transform the data after loading using the warehouse's compute power
+- Preserves raw data for auditing and reprocessing
+- Common in modern cloud data platforms
+- Better suited for large-scale analytics and machine learning workloads
+
+Flow:
+Source Systems → Extract → Load → Data Warehouse/Lakehouse → Transform → BI / Analytics / ML
+
+
+#### Orchestration 
+In charge of when to start jobs, what order to run jobs, what to do if a job fails, and whats the status of the jobs. 
+
+- Manages and automates data pipeline workflows
+- Determines when jobs should start (schedules or event triggers)
+- Controls the order in which jobs and tasks are executed
+- Manages dependencies between tasks (ensures prerequisite jobs finish first)
+- Handles failures by retrying jobs, sending alerts, or triggering recovery actions
+- Monitors the status and health of pipelines (running, completed, failed)
+- Provides logging, monitoring, and notifications for pipeline execution
+- Ensures data pipelines run reliably and efficiently
+
+This is commonly done by managing every stage of ELT with DAG (Directed Acyclic Graph) where there is a directed flow or connections with no loops back.
+
+Common Orchestration Tools:
+- Apache Airflow
+- Prefect
+- Dagster
+- Azure Data Factory
+
+
+#### Serving
+- BI/Analytics
+  - Users: Data Analysts, Business Analysts, Data Engineers
+  - Provides reports to explain "what happened" and "what is going on."
+  - Interactive dashboards and visualizations for business users to explore data
+  - Technology: Power BI, Tableau, Excel, Looker
+
+- ML/AI
+  - Users: Data Scientists, AI/ML Engineers
+  - Uses curated datasets to build predictive and machine learning models.
+  - Develops AI applications and model-driven insights using Python.
+  - Technology: Python, Jupyter Notebooks, TensorFlow, PyTorch, Scikit-learn
+
+- Reverse ETL
+  - Sends cleaned, transformed, and enriched data from the warehouse back into operational systems.
+  - Makes analytics available in day-to-day business tools for sales, marketing, customer support, and operations.
+  - Examples: Salesforce, HubSpot, Marketo, Zendesk, Slack
+
+#### CI/CD
+- Automates the process of building, testing, and deploying code changes
+- Enables teams to release updates quickly, consistently, and with fewer errors
+- Ensures code is tested before being deployed to production
+- Reduces manual deployment effort and improves software reliability
+- Supports version control integration (e.g., Git) for collaborative development
+
+**Continuous Integration (CI)**
+- Automatically builds and tests code whenever changes are committed
+- Detects bugs and integration issues early
+- Runs unit tests, code quality checks, and validation
+
+**Continuous Deployment/Delivery (CD)**
+- Automatically deploys validated code to development, staging, or production environments
+- Ensures deployments are repeatable and consistent
+- Can include approval gates before production deployment (Continuous Delivery) or fully automated production releases (Continuous Deployment)
+
+
+#### Data Architecture 
+
+Data architecture is the overall blueprint for how data flows through an organization, from collection to analysis. Data is collected through ingestion using batch or streaming methods, stored in systems such as data lakes, data warehouses, or lakehouses, and processed using ETL or ELT pipelines. Cloud platforms provide the scalability needed to manage these systems. OLTP systems create and manage operational data, while OLAP systems analyze data for insights and reporting. The medallion architecture organizes data into Bronze, Silver, and Gold layers to improve data quality and usability. Together, these components create a reliable system for storing, transforming, and serving data for analytics, applications, and machine learning. 
+
+
+### SQL 
+Structured Query Language (SQL) is used to manage, manipulate, and retrieve data stored in relational databases. 
+- Where does SQL run? 
+  - SQL runs on a database management system (DBMS), which can be installed on your local computer or hosted on a remote server. The database engine executes your SQL queries and returns the results.
+- With SQL, you typically don't need to worry about data size because modern warehouses automatically scale compute across multiple machines 
+- SQL is great working withe structured data like joining tables and aggregating grouping
+- SQL doesn't do great when classifying messy text, feature engineering, or nested JSON data, which is where Python comes in for transformation (especially for AI and machine learning) 
+
+#### dbt (databuild tools)
+**What is dbt?**
+- dbt (Data Build Tool) is used to manage and organize SQL based data transformations in a data warehouse.
+- It helps transform raw data into clean, analytics ready datasets using SQL.
+When to use dbt
+- Use dbt when working with data warehouses that require structured, maintainable SQL transformations.
+
+**It is especially useful for projects with:**
+- Many tables
+- Complex transformation logic
+- Multiple developers collaborating
+- Version control and testing requirements
+
+**When dbt may not be necessary:**
+- For simple transformations involving only a few tables, writing plain SQL scripts may be sufficient.
+- In small projects, introducing dbt can add unnecessary complexity.
+
+### Python
+Python is a multipurpose programming language that is used for analyzing data, automating, machine learning, and in many more cases. 
+
+- How does Python work? 
+  - Python acts as the orchestration layer in the ELT (Extract, Load, Transform) process. It executes SQL queries in the required order, while the database performs the data extraction, loading, and transformation. Python is responsible for coordinating the workflow, managing execution, and capturing the output and logs.
+- Where does Python run? 
+  - Python can run locally on your computer or a remote computer/server for production.
+
+#### Apache Spark 
+**What is Apache Spark?**
+- Apache Spark is a distributed data processing framework used to scale Python, SQL, Java, and Scala data transformations across multiple machines
+- It enables processing of very large datasets that cannot be handled efficiently on a single computer.
+- Splits work across a cluster of machine to process, ingest, and transform data
+
+**When to use Apache Spark:**
+- Processing large datasets (GBs to TBs or more)
+- Scaling Python transformations across a cluster
+- Distributed ETL pipelines
+- Batch processing and streaming data
+- Machine learning on large datasets using Spark MLlib
+
+**When Spark may not be necessary:**
+- For small datasets that fit comfortably in memory, standard Python (e.g., pandas) is often simpler and faster.
+- Spark introduces overhead, so it is generally most beneficial when data size or computation complexity justifies distributed processing.
 
 
 
