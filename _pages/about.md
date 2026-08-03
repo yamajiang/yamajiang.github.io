@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: "<strong><span style='color: var(--global-theme-color);'>Orlando, FL</span></strong>"
 profile:

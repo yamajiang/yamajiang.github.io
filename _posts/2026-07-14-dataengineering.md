@@ -1,9 +1,9 @@
 ---
 layout: distill
-title: data engineering
+title: Data Engineering
 description: >-
-  my learning progress + notes for data engineering <br>
-  last edited: august 3, 2026
+  My learning progress + notes for data engineering <br>
+  Last Edited: August 3, 2026
 tags:
   - notes
 published: true

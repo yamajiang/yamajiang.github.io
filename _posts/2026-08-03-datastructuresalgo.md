@@ -1,8 +1,8 @@
 ---
 layout: distill
-title: data structures & algorithms 
+title: Data Structures & Algorithms 
 description: >-
-  dsa topics and notes <br>
+  DSA Topics and Notes <br>
 tags:
   - notes
 published: true
