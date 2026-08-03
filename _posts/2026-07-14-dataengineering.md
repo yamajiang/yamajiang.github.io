@@ -3,13 +3,13 @@ layout: distill
 title: data engineering
 description: >-
   my learning progress + notes for data engineering <br>
-  last edited: july 27, 2026
+  last edited: august 3, 2026
 tags:
   - notes
 published: true
 giscus_comments: false
 date: 2026-07-14
-last_edited: 2026-07-27
+last_edited: 2026-08-03
 featured: true
 
 _styles: >
@@ -501,22 +501,22 @@ WHERE condition
 ```
 - Complex clauses can be constructed by joining numerous AND or OR logical keywords
 
+| Operator | Condition | SQL Example |
+|----------|-----------|-------------|
+| `=`, `!=`, `<`, `<=`, `>`, `>=` | Standard numerical comparison operators | `col_name != 4` |
+| `BETWEEN ... AND ...` | Number is within a range of two values (inclusive) | `col_name BETWEEN 1.5 AND 10.5` |
+| `NOT BETWEEN ... AND ...` | Number is not within a range of two values (inclusive) | `col_name NOT BETWEEN 1 AND 10` |
+| `IN (...)` | Number exists in a list | `col_name IN (2, 4, 6)` |
+| `NOT IN (...)` | Number does not exist in a list | `col_name NOT IN (1, 3, 5)` |
+| `=` | Exact string comparison.<br>Case sensitivity depends on the database/collation. | `col_name = "abc"` |
+| `!=` or `<>` | Exact string inequality comparison.<br>Case sensitivity depends on the database/collation. | `col_name != "abcd"` |
+| `LIKE` | Pattern matching.<br>Without wildcards (`%` or `_`), it matches the entire string.<br>Case sensitivity depends on the database/collation. | `col_name LIKE "ABC"` |
+| `NOT LIKE` | Negates `LIKE` pattern matching.<br>Case sensitivity depends on the database/collation. | `col_name NOT LIKE "ABCD"` |
+| `%` | Matches zero or more characters.<br>Used only with `LIKE` or `NOT LIKE`. | `col_name LIKE "%AT%"`<br>Matches `"AT"`, `"ATTIC"`, `"CAT"`, or `"BATS"` |
+| `_` | Matches exactly one character.<br>Used only with `LIKE` or `NOT LIKE`. | `col_name LIKE "AN_"`<br>Matches `"AND"`, but not `"AN"` |
+| `IN (...)` | String exists in a list | `col_name IN ("A", "B", "C")` |
+| `NOT IN (...)` | String does not exist in a list | `col_name NOT IN ("D", "E", "F")` |
 
-| Operator                             | Condition                                                                           | SQL Example                                                               |
-| ------------------------------------ | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `=` , `!=` , `<` , `<=` , `>` , `>=` | Standard numerical comparison operators                                             | `col_name != 4`                                                           |
-| `BETWEEN ... AND ...`                | Number is within a range of two values (inclusive)                                  | `col_name BETWEEN 1.5 AND 10.5`                                           |
-| `NOT BETWEEN ... AND ...`            | Number is not within a range of two values (inclusive)                              | `col_name NOT BETWEEN 1 AND 10`                                           |
-| `IN (...)`                           | Number exists in a list                                                             | `col_name IN (2, 4, 6)`                                                   |
-| `NOT IN (...)`                       | Number does not exist in a list                                                     | `col_name NOT IN (1, 3, 5)`                                               |
-| `=`                                  | Case-sensitive exact string comparison                                              | `col_name = "abc"`                                                        |
-| `!=` or `<>`                         | Case-sensitive exact string inequality comparison                                   | `col_name != "abcd"`                                                      |
-| `LIKE`                               | Case-insensitive exact string comparison                                            | `col_name LIKE "ABC"`                                                     |
-| `NOT LIKE`                           | Case-insensitive exact string inequality comparison                                 | `col_name NOT LIKE "ABCD"`                                                |
-| `%`                                  | Matches a sequence of zero or more characters (used only with `LIKE` or `NOT LIKE`) | `col_name LIKE "%AT%"`<br>Matches `"AT"`, `"ATTIC"`, `"CAT"`, or `"BATS"` |
-| `_`                                  | Matches a single character (used only with `LIKE` or `NOT LIKE`)                    | `col_name LIKE "AN_"`<br>Matches `"AND"`, but not `"AN"`                  |
-| `IN (...)`                           | String exists in a list                                                             | `col_name IN ("A", "B", "C")`                                             |
-| `NOT IN (...)`                       | String does not exist in a list                                                     | `col_name NOT IN ("D", "E", "F")`                                         |
 
 ### Joins
 - <u>JOIN</u> is used to combine row data across two separate tables based on a related column, or unique key, between them

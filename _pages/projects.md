@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of my projects ~ a wip [currently in progress of updating information].
+description: a growing collection of my projects ~ a wip [currently in progress of updating information].
 nav: true
 nav_order: 3
 display_categories: [personal, academic]

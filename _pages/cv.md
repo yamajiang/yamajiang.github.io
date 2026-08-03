@@ -8,11 +8,16 @@ description:
 ---
 
 <p>
-  <a href="{{ '/assets/pdf/Yama_Jiang_Resume.pdf' | relative_url }}" target="_blank" rel="noopener">
+  <a href="{{ '/assets/pdf/Yama_Jiang_Resume.pdf' | relative_url }}"
+     target="_blank"
+     rel="noopener"
+     style="text-decoration: underline;">
     Open resume in new tab
   </a>
   |
-  <a href="{{ '/assets/pdf/Yama_Jiang_Resume.pdf' | relative_url }}" download>
+  <a href="{{ '/assets/pdf/Yama_Jiang_Resume.pdf' | relative_url }}"
+     download
+     style="text-decoration: underline;">
     Download PDF
   </a>
 </p>
