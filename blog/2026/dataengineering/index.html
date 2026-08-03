@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> data engineering | Yama Jiang </title> <meta name="author" content="Yama Jiang"> <meta name="description" content="my learning progress + notes for data engineering &lt;br&gt; last edited: august 3, 2026"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Data Engineering | Yama Jiang </title> <meta name="author" content="Yama Jiang"> <meta name="description" content="My learning progress + notes for data engineering &lt;br&gt; Last Edited: August 3, 2026"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
   :root {
     --max-content-width: 930px;
   }
@@ -20,8 +20,8 @@
 
       </style> </head> <body> <d-front-matter> <script async type="text/json">
       {
-            "title": "data engineering",
-            "description": "my learning progress + notes for data engineering <br> last edited: august 3, 2026",
+            "title": "Data Engineering",
+            "description": "My learning progress + notes for data engineering <br> Last Edited: August 3, 2026",
             "published": "July 14, 2026",
             "authors": [
               
@@ -41,7 +41,7 @@
               ]
             }
           }
-    </script> </d-front-matter> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Yama</span> Jiang </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">news </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="post distill"> <d-title> <h1>data engineering</h1> <p>my learning progress + notes for data engineering <br> last edited: august 3, 2026</p> </d-title> <d-article> <d-contents> <nav class="l-text figcaption"> <h3>Contents</h3> <div> <a href="#foundation">Foundation</a> </div> <ul> <li> <a href="#fundamentals">Fundamentals</a> </li> <li> <a href="#data-engineering-workflow">Data Engineering Workflow</a> </li> <li> <a href="#data-lake">Data Lake</a> </li> <li> <a href="#data-warehouse">Data Warehouse</a> </li> <li> <a href="#data-lakehouse">Data Lakehouse</a> </li> </ul> <div> <a href="#sql">SQL</a> </div> <ul> <li> <a href="#select-from">SELECT FROM</a> </li> <li> <a href="#basic-queries">Basic Queries</a> </li> <li> <a href="#constraints-and-filtering">Constraints and Filtering</a> </li> <li> <a href="#joins">Joins</a> </li> <li> <a href="#expressions-and-data-transformations">Expressions and Data Transformations</a> </li> <li> <a href="#case-statements">Case Statements</a> </li> <li> <a href="#null-values">NULL Values</a> </li> <li> <a href="#aggregations">Aggregations</a> </li> </ul> <div> <a href="#python">Python</a> </div> </nav> </d-contents> <p>My goal is to build a practical foundation in:</p> <ul> <li>data modeling</li> <li>data pipelines</li> <li>storage systems</li> <li>orchestration</li> <li>data quality and observability</li> </ul> <h3 id="general-data-workflow">General Data Workflow</h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                               Raw Data
+    </script> </d-front-matter> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Yama</span> Jiang </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">News </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="post distill"> <d-title> <h1>Data Engineering</h1> <p>My learning progress + notes for data engineering <br> Last Edited: August 3, 2026</p> </d-title> <d-article> <d-contents> <nav class="l-text figcaption"> <h3>Contents</h3> <div> <a href="#foundation">Foundation</a> </div> <ul> <li> <a href="#fundamentals">Fundamentals</a> </li> <li> <a href="#data-engineering-workflow">Data Engineering Workflow</a> </li> <li> <a href="#data-lake">Data Lake</a> </li> <li> <a href="#data-warehouse">Data Warehouse</a> </li> <li> <a href="#data-lakehouse">Data Lakehouse</a> </li> </ul> <div> <a href="#sql">SQL</a> </div> <ul> <li> <a href="#select-from">SELECT FROM</a> </li> <li> <a href="#basic-queries">Basic Queries</a> </li> <li> <a href="#constraints-and-filtering">Constraints and Filtering</a> </li> <li> <a href="#joins">Joins</a> </li> <li> <a href="#expressions-and-data-transformations">Expressions and Data Transformations</a> </li> <li> <a href="#case-statements">Case Statements</a> </li> <li> <a href="#null-values">NULL Values</a> </li> <li> <a href="#aggregations">Aggregations</a> </li> </ul> <div> <a href="#python">Python</a> </div> </nav> </d-contents> <p>My goal is to build a practical foundation in:</p> <ul> <li>data modeling</li> <li>data pipelines</li> <li>storage systems</li> <li>orchestration</li> <li>data quality and observability</li> </ul> <h3 id="general-data-workflow">General Data Workflow</h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                               Raw Data
                                    │
                                    ▼
                             Data Engineer
@@ -280,34 +280,34 @@ const ninja = document.querySelector('ninja-keys');
 // add the home and posts menu items
 ninja.data = [{
     id: "nav-about",
-    title: "about",
+    title: "About",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
     },
   },{id: "nav-blog",
-          title: "blog",
+          title: "Blog",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
           },
         },{id: "nav-projects",
-          title: "projects",
-          description: "a growing collection of my projects ~ a wip [currently in progress of updating information].",
+          title: "Projects",
+          description: "A growing collection of my projects ~ a wip [currently in progress of updating information].",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
         },{id: "nav-news",
-          title: "news",
+          title: "News",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/news/";
           },
         },{id: "nav-cv",
-          title: "cv",
+          title: "CV",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -315,9 +315,9 @@ ninja.data = [{
           },
         },{id: "post-data-structures-amp-algorithms",
         
-          title: "data structures &amp; algorithms",
+          title: "Data Structures &amp; Algorithms",
         
-        description: "dsa topics and notes",
+        description: "DSA Topics and Notes",
         section: "Posts",
         handler: () => {
           
@@ -326,9 +326,9 @@ ninja.data = [{
         },
       },{id: "post-data-engineering",
         
-          title: "data engineering",
+          title: "Data Engineering",
         
-        description: "my learning progress + notes for data engineering  last edited: august 3, 2026",
+        description: "My learning progress + notes for data engineering  Last Edited: August 3, 2026",
         section: "Posts",
         handler: () => {
           
@@ -337,9 +337,9 @@ ninja.data = [{
         },
       },{id: "post-hello-world",
         
-          title: "hello world",
+          title: "Hello World",
         
-        description: "welcome !",
+        description: "Welcome !",
         section: "Posts",
         handler: () => {
           
