@@ -3,13 +3,11 @@ layout: distill
 title: data structures & algorithms 
 description: >-
   dsa topics and notes <br>
-  last edited: august 3, 2026
 tags:
   - notes
 published: true
 giscus_comments: false
-date: 2026-08-03
-last_edited: 2026-08-03
+hide_date: true
 featured: false
 
 _styles: >
@@ -102,3 +100,15 @@ When analyzing space complexity, we focus on the additional memory required by t
 5. Ignore constant factors and lower order terms
 6. Express the result using Big O notation
 
+
+#### Common Big O Complexities
+
+- Constant Time (`O(1)`)
+- Linear Time (`O(n)`)
+- Logarithmic Time (`O(log n)`)
+- Linearithmic Time (`O(n log n)`)
+- Quadratic Time (`O(n²)`)
+- Cubic Time (`O(n³)`)
+- Polynomial Time (`O(nᵏ)`)
+- Exponential Time (`O(2ⁿ)`)
+- Factorial Time (`O(n!)`)
