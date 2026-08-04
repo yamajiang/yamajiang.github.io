@@ -3,13 +3,13 @@ layout: distill
 title: Data Engineering
 description: >-
   My learning progress + notes for data engineering <br>
-  Last Edited: August 3, 2026
+  Last Edited: August 4, 2026
 tags:
   - notes
 published: true
 giscus_comments: false
 date: 2026-07-14
-last_edited: 2026-08-03
+last_edited: 2026-08-04
 featured: true
 
 _styles: >
@@ -48,6 +48,7 @@ toc:
       - name: Case Statements
       - name: NULL Values
       - name: Aggregations
+      - name: UPDATE
   - name: Python
 
 
@@ -603,6 +604,9 @@ WHERE condition
   - employees without a department,
   - departments without any employees.
   Note: MySQL does not support FULL JOIN directly. It can be simulated using a LEFT JOIN, a RIGHT JOIN, and UNION.
+  - UNION Combines the results of two `SELECT` statements and removes duplicate rows
+  - UNION ALL combines the results of two `SELECT` statements and keeps all rows, including duplicates.
+  
 
 ### Expressions and Data Transformations 
 
@@ -677,7 +681,7 @@ SELECT ROUND(price, 2) AS rounded_price
 FROM products;
 ```
 
-<u>String Functions</u>
+**String Functions**
 
 Useful for cleaning inconsistent text data
 
@@ -700,11 +704,17 @@ SELECT TRIM(email)
 FROM customers;
 ```
 
+<u>String Concatenation </u>
 ```
 SELECT CONCAT(first_name, ' ', last_name) AS full_name
 FROM employees;
 ```
 
+```
+SELECT
+    first_name || ' ' || last_name AS full_name
+FROM employees;
+```
 
 #### Why use expressions?
 
@@ -727,7 +737,6 @@ This query:
 - Converts names to uppercase
 - Calculates the total order cost
 - Gives each calculated value a descriptive alias
-
 
 ### Case Statements
 - <u>CASE</u> is SQL's version of an `if-else` statement. It evaluates conditions in order and returns a value for the first condition that is true
@@ -860,6 +869,49 @@ FROM customers;
   FROM employees;
   ```
 
+### UPDATE 
+UPDATE statement in SQL modifies existing rows or records in a table.
+- Always use WHERE for conditions unless you intend to update every row
+
+```
+UPDATE table_name
+SET column1 = value1,
+    column2 = value2
+WHERE condition(s)
+```
+
+Examples:
+
+Update a single row:
+
+```
+UPDATE employees
+SET salary = 70000
+WHERE employee_id = 101;
+```
+
+Update multiple columns:
+
+```
+UPDATE employees
+SET salary = 75000,
+    department = 'Engineering'
+WHERE employee_id = 101;
+```
+
+Update multiple rows:
+
+```
+UPDATE products
+SET price = price * 1.10
+WHERE category = 'Electronics';
+```
+
+Updates all rows:
+```
+UPDATE employees
+SET salary = 50000;
+```
 
 <!-- ----------------------------------------------------------------------------------  -->
 
