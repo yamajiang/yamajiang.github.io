@@ -27,7 +27,9 @@ latest_posts:
  
 ---
 
-I’m currently pursuing a <span style='color: var(--global-theme-color);'>Bachelor of Science in Computer Science</span> through the Accelerated BS-MS program at the <span style='color: var(--global-theme-color);'>University of Central Florida </span>where I will be continuing with my Master's in the Fall. I am passionate about applying technology to solve real-world problems, particularly in <span style='color: var(--global-theme-color);'>AI, data engineering, robotics, cybersecurity, and software engineering</span>. In my free time, I enjoy learning new technologies, programming languages, and working on personal projects. <span style='color: var(--global-theme-color);'>I'm currently learning SQL</span>!
+I’m currently pursuing a <span style='color: var(--global-theme-color);'>Master of Science in Computer Science</span> at the <br> <span style='color: var(--global-theme-color);'>University of Central Florida</span>. 
+<br>I am passionate about applying technology to solve real-world problems, particularly in <span style='color: var(--global-theme-color);'>AI, data engineering, robotics, cybersecurity, and software engineering</span>. 
+<br>In my free time, I enjoy learning new technologies, programming languages, and working on personal projects. <span style='color: var(--global-theme-color);'>I'm currently learning SQL</span>!
 
 ---
 As I continue to expand my technical expertise, I am eager to learn and adapt in the rapidly evolving technology industry. I am actively seeking opportunities where I can contribute to meaningful projects, collaborate with a like minded team, and continue growing both professionally and technically.

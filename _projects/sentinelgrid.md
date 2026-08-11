@@ -26,7 +26,7 @@ images:
   </swiper-slide>
 </swiper-container>
 
-SentinelGrid is a Senior Design project developed by a team of five to build an end-to-end cyber-defense platform that uses honeypot activity to analyze attacker behavior and dynamically recommend how defensive resources should be deployed.
+SentinelGrid is a capstone project developed by a team of five to build an end-to-end cyber-defense platform that uses honeypot activity to analyze attacker behavior and dynamically recommend how defensive resources should be deployed.
 
 As the Machine Learning & Threat Analysis Engineer, I designed and implemented the machine learning pipeline that transforms raw honeypot activity into attacker profiles and deployment recommendations.
 
