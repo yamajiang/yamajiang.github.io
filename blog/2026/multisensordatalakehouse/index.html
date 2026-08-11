@@ -1,0 +1,251 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Multi-Sensor Data Lakehouse | Yama Jiang </title> <meta name="author" content="Yama Jiang"> <meta name="description" content="Deep dive into the architecture and implementation of &lt;br&gt; my Multi-Sensor Data Lakehouse project &lt;br&gt; Last Edited: August 11, 2026"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%90&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://yamajiang.github.io/blog/2026/multisensordatalakehouse/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> <link rel="stylesheet" href="/assets/css/al-folio-distill.css?v=fb7196ec07cb5299d51b2cbdc69c23d7"> <script src="/assets/js/distillpub/template.v2.js"></script> <script src="/assets/js/distillpub/transforms.v2.js"></script> <style type="text/css">
+        .post.distill p, .post.distill li {
+  line-height: 1.5;
+  margin-bottom: 0.45rem;
+}
+.post.distill h2, .post.distill h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+}
+.post.distill ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+      </style> </head> <body> <d-front-matter> <script async type="text/json">
+      {
+            "title": "Multi-Sensor Data Lakehouse",
+            "description": "Deep dive into the architecture and implementation of <br>
+  my Multi-Sensor Data Lakehouse project <br>
+  Last Edited: August 11, 2026",
+            "published": "August 11, 2026",
+            "authors": [
+              
+            ],
+            "katex": {
+              "delimiters": [
+                {
+                  "left": "$",
+                  "right": "$",
+                  "display": false
+                },
+                {
+                  "left": "$$",
+                  "right": "$$",
+                  "display": true
+                }
+              ]
+            }
+          }
+    </script> </d-front-matter> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Yama</span> Jiang </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">Projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">News </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="post distill"> <d-title> <h1>Multi-Sensor Data Lakehouse</h1> <p>Deep dive into the architecture and implementation of <br> my Multi-Sensor Data Lakehouse project <br> Last Edited: August 11, 2026</p> </d-title> <d-article> <d-contents> <nav class="l-text figcaption"> <h3>Contents</h3> <div> <a href="#introduction">Introduction</a> </div> <div> <a href="#problem-and-approach">Problem and Approach</a> </div> <div> <a href="#dataset">Dataset</a> </div> <div> <a href="#system-architecture-and-data-pipeline">System Architecture and Data Pipeline</a> </div> </nav> </d-contents> <h2 id="introduction">Introduction</h2> <p>Robotic systems generate large amounts of telemetry data from different components and sensors, including cameras, LiDAR, GPS, IMUs, and localization systems. This data is commonly stored in ROS bag files, which are used to record and replay robotic activity, but they are not designed for modern data engineering and analytical workflows.</p> <p>For this project, I am building a data lakehouse that transforms raw ROS bag files into structured, analytics ready datasets without requiring a ROS runtime. The goal is to take the high-volume, asynchronous telemetry produced by an autonomous vehicle and transform it into a format that can be efficiently queried, synchronized, analyzed, and eventually replayed.</p> <p>The project follows a <strong>Bronze → Silver → Gold</strong> architecture. Raw ROS messages are first extracted into Apache Parquet files, then cleaned and standardized before being synchronized across sensor streams. The resulting Gold datasets will provide a unified view of vehicle state that can be queried using DuckDB and used for applications such as sensor analysis, mission statistics, debugging, and fleet-level analytics.</p> <p>I am using the <strong>Ford Multi-AV Seasonal Dataset</strong> as the primary data source. It includes ROS1 bag files containing real-world autonomous vehicle telemetry collected across different environments, seasons, and driving conditions. This makes it a useful dataset for exploring the challenges of working with large scale robotics data.</p> <p>In this post, I will document the ongoing process of building the project — from extracting ROS messages and handling timestamps to synchronizing asynchronous sensors, building analytical datasets, and exploring technologies such as Parquet, DuckDB, Spark, Delta Lake, and Databricks.</p> <h2 id="problem-and-approach">Problem and Approach</h2> <p>Autonomous vehicles and robotic systems continuously produce heterogeneous telemetry from dozens of sensors operating at vastly different sampling frequencies.</p> <p>This creates several challenges:</p> <ul> <li>ROS Dependency <ul> <li>Accessing robotics telemetry traditionally requires a configured ROS environment, which creates unnecessary overhead for data analysts and engineers performing offline analysis on historical data.</li> </ul> </li> <li>Asynchronous Sensor Streams <ul> <li>Independent sensors publish at different frequencies and timestamps, which prevents direct connections between datasets.</li> </ul> </li> <li>Real Time Replay <ul> <li>Historical analysis is commonly performed using rosbag play, forcing engineers to replay missions in real time. Increasing playback speed frequently results in dropped messages and unstable playback.</li> </ul> </li> <li>Scalable Analytics <ul> <li>Robotics logs are optimized for real-time message transport rather than analytical workloads, making SQL queries and fleet-wide analysis inefficient</li> </ul> </li> </ul> <p>Rather than relying on a traditional ROS-based workflow, this project transforms robotics telemetry into a layered data lakehouse optimized for both large scale analytics and historical replay.</p> <p>The ingestion pipeline extracts raw ROS bag data and organizes it into progressively refined datasets following a Bronze → Silver → Gold architecture.</p> <h2 id="dataset">Dataset</h2> <p>This project uses the Ford Motor Company large-scale autonomous vehicle telemetry dataset that was collected across multiple seasons and environmental conditions. The dataset is distributed in ROS bag format, making it an ideal source for demonstrating robotics data ingestion, time series synchronization, and lakehouse analytics workflows.</p> <h3 id="dataset-links">Dataset Links</h3> <ul> <li> <p>Dataset Paper: <a href="https://arxiv.org/abs/2003.07969" rel="external nofollow noopener" target="_blank">Ford Multi-AV Seasonal Dataset Paper</a></p> </li> <li> <p>Official Dataset Page: <a href="https://avdata.ford.com/" rel="external nofollow noopener" target="_blank">Ford Multi-AV Seasonal Dataset</a></p> </li> </ul> <p>The core challenge addressed by this project is transforming asynchronous robotics telemetry into a unified, analytics-ready format.</p> <p>The dataset includes heterogeneous sensor streams such as:</p> <ul> <li>IMU</li> <li>GPS</li> <li>Cameras</li> <li>LiDAR</li> <li>Vehicle Pose</li> <li>Localization</li> <li>Transform Frames</li> </ul> <p>These sensors operate at different frequencies, making the dataset an ideal benchmark for time-series synchronization and robotics lakehouse analytics.</p> <h2 id="system-architecture-and-data-pipeline">System Architecture and Data Pipeline</h2> <p>The target architecture for the completed pipeline is shown below. This may change overtime as I progress in development.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    ROS Bag (.bag)
+                           │
+                           ▼
+               ROS Runtime-Free Ingestion
+    (Extract ROS Topics to Parquet → Structured Tables)
+                           │
+                           ▼
+                  Bronze Layer (Raw)
+            • One table per ROS topic
+            • Original timestamps preserved
+            • Immutable raw telemetry
+                           │
+                           ▼
+                Silver Layer (Cleaned)
+            • Normalize timestamps
+            • Flatten ROS messages
+            • Standardize schemas
+            • Remove invalid records
+                           │
+                           ▼
+            Multi-Sensor Time Synchronization
+            • Master timeline generation
+            • As-Of nearest-neighbor joins
+            • Time-series interpolation
+                           │
+                           ▼
+                Gold Layer (Unified)
+            • Synchronized state table
+            • Analytics-ready telemetry
+            • Consistent sensor alignment
+                           │
+                           ▼
+             Apache Parquet Lakehouse
+                           │
+                           ▼
+                  DuckDB SQL Engine
+                  /                 \
+                 /                   \
+                ▼                     ▼
+      Fleet Analytics        Historical Replay
+      • SQL exploration      • Variable-speed playback
+      • Mission statistics   • Timeline reconstruction
+      • Sensor analysis      • Debugging &amp; validation
+</code></pre></div></div> </d-article> <d-appendix> <d-footnote-list></d-footnote-list> <d-citation-list></d-citation-list> </d-appendix> <d-bibliography src="/assets/bibliography/"></d-bibliography> <d-article> <br> <br> </d-article> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yama Jiang. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script src="/assets/js/distillpub/overrides.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "About",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-projects",
+          title: "Projects",
+          description: "A growing collection of my projects ~ a wip [currently in progress of updating information].",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-news",
+          title: "News",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-multi-sensor-data-lakehouse",
+        
+          title: "Multi-Sensor Data Lakehouse",
+        
+        description: "Deep dive into the architecture and implementation of   my Multi-Sensor Data Lakehouse project   Last Edited: August 11, 2026",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/multisensordatalakehouse/";
+          
+        },
+      },{id: "post-data-engineering",
+        
+          title: "Data Engineering",
+        
+        description: "My learning progress + notes for data engineering  Last Edited: August 4, 2026",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/dataengineering/";
+          
+        },
+      },{id: "post-hello-world",
+        
+          title: "Hello World",
+        
+        description: "Welcome !",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/welcome/";
+          
+        },
+      },{id: "news-admitted-into-accelerated-bs-ms-computer-science-program",
+          title: 'Admitted into Accelerated BS-MS Computer Science Program',
+          description: "",
+          section: "News",},{id: "news-admitted-into-computer-science-master-39-s-program",
+          title: 'Admitted into Computer Science Master&amp;#39;s Program',
+          description: "",
+          section: "News",},{id: "news-graduated-with-a-bachelor-of-science-in-computer-science-from-the-university-of-central-florida",
+          title: 'Graduated with a Bachelor of Science in Computer Science from the University of...',
+          description: "",
+          section: "News",},{id: "projects-multimodal-survival-prediction-in-muscle-invasive-bladder-cancer",
+          title: 'Multimodal Survival Prediction in Muscle Invasive Bladder Cancer',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mibc/";
+            },},{id: "projects-multi-sensor-data-lakehouse",
+          title: 'Multi Sensor Data Lakehouse',
+          description: "Status: In Progress",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/multisensordatalakehouse/";
+            },},{id: "projects-sentinel-grid",
+          title: 'Sentinel Grid',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/sentinelgrid/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%79%61%6D%61%6A%69%61%6E%67.%63%73@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/yamajiang", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/yamajiang", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
