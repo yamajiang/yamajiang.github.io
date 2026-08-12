@@ -3,13 +3,13 @@ layout: distill
 title: Data Engineering
 description: >-
   My learning progress + notes for data engineering <br>
-  Last Edited: August 4, 2026
+  Last Edited: August 11, 2026
 tags:
   - notes
 published: true
 giscus_comments: false
 date: 2026-07-14
-last_edited: 2026-08-04
+last_edited: 2026-08-11
 featured: true
 
 _styles: >
@@ -607,6 +607,17 @@ WHERE condition
   - UNION Combines the results of two `SELECT` statements and removes duplicate rows
   - UNION ALL combines the results of two `SELECT` statements and keeps all rows, including duplicates.
   
+- <u>CROSS JOIN</u> returns the Cartesian product of two or more tables where it combines every row from the first table with every row from the second one. 
+  Example:
+
+  ```
+  SELECT employees.name, departments.department_name
+  FROM employees
+  CROSS JOIN departments;
+
+  ```
+  This CROSS JOIN combines every employee with every department
+
 
 ### Expressions and Data Transformations 
 

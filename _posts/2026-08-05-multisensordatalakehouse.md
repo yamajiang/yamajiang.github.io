@@ -7,7 +7,7 @@ description: >-
     Last Edited: August 11, 2026
 tags:
   - projects
-published: true
+published: false
 giscus_comments: false
 date: 2026-08-11
 last_edited: 2026-08-11
